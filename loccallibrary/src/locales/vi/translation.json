@@ -1,0 +1,23 @@
+﻿{
+  "home": {
+    "local_library": "Thư viện địa phương",
+    "book": "Sách",
+    "author": "Tác giả",
+    "genre": "Thể loại",
+    "book_instance": "Bản sao sách",
+    "welcome": "Chào mừng đến với {{title}}",
+    "content": "Nội dung",
+    "record_infor": "Tình trạng thư viện của chúng tôi:",
+    "book": "Sách",
+    "bookinstance": "Các bản sao sách",
+    "available_bookinstance": "Các bản sao sách có sẵn",
+    "author": "Tác giả",
+    "genre": "Thể loại",
+    "create_author": "Tạo mới tác giả",
+    "create_genre": "Tạo mới thể loại",
+    "create_book": "Tạo mới sách",
+    "create_bookinstance": "Tạo mới bản sao sách",
+    "english_translations": "Tiếng Anh",
+    "vietnamese_translations": "Tiếng Việt"
+  }
+}

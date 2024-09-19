@@ -25,6 +25,9 @@ app.set("views", viewsDir);
 const staticDir = path.join(__dirname, "public");
 app.use(express.static(staticDir));
 
+app.set("views", path.join(__dirname, "../src/views"));
+app.set("view engine", "pug");
+
 app.use(router);
 
 export default app;
