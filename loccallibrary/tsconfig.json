@@ -8,6 +8,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true
+    "noUnusedLocals": false,
+    "sourceMap": true,
+    "esModuleInterop": true
   }
 }

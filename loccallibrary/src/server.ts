@@ -1,23 +1,13 @@
-/**
- * Setup express server.
- */
-
 import path from "path";
-
-import express, { Request, Response } from "express";
-
+import express from "express";
 import "express-async-errors";
-
 import BaseRouter from "./routes";
-
 import Paths from "./common/Paths";
+import router from "./routes";
 
 // **** Variables **** //
-
 const app = express();
-
 // **** Setup **** //
-
 // Basic middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -35,11 +25,6 @@ app.set("views", viewsDir);
 const staticDir = path.join(__dirname, "public");
 app.use(express.static(staticDir));
 
-// Nav to login pg by default
-app.get("/", (_: Request, res: Response) => {
-  res.sendFile("login.html", { root: viewsDir });
-});
-
-// **** Export default **** //
+app.use(router);
 
 export default app;
