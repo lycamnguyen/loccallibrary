@@ -4,12 +4,15 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "./build",
+    "outDir": "./dist",
+
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,
     "sourceMap": true,
     "esModuleInterop": true
-  }
+  },
+  "include": ["src/**/*.ts", "spec/**/*.ts"],
+  "exclude": ["src/public/", "@types/**/*"]
 }

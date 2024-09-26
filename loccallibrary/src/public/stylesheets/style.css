@@ -1,0 +1,20 @@
+﻿.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.container-fluid {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.inline-between {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
