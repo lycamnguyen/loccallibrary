@@ -13,3 +13,10 @@ export const listGenres = async () => {
     order: { name: "ASC" },
   });
 };
+
+export const findById = async (id) => {
+  return await genreRepository.findOne({
+    where: { id: id },
+    relations: ["books"],
+  });
+};

@@ -18,23 +18,47 @@
     "create_book": "Create book",
     "create_bookinstance": "Create book instances",
     "english_translations": "English",
-    "vietnamese_translations": "Vietnamese"
+    "vietnamese_translations": "Vietnamese",
+    "title": "Title",
+    "isbn": "ISBN",
+    "summary": "Summary",
+    "imprint": "Imprint",
+    "copies": "Copies",
+    "id": "ID",
+    "status": "Status",
+    "dueback": "Due back"
   },
 
   "author": {
     "title": "Author List",
-    "no_author": "There are no author"
+    "no_author": "There are no author",
+    "no_book": "No book for author",
+    "error_message_invalid": "Invalid author ID parameter",
+    "error_message_not_found": "Author not found"
   },
   "genre": {
     "title": "Genre List",
-    "no_genre": "There are no genre"
+    "no_genre": "There are no genre",
+    "no_book": "No book for genre",
+    "error_message_invalid": "Invalid genre ID parameter",
+    "error_message_not_found": "Genre not found"
   },
   "bookinstance": {
     "title": "Book Instance List",
-    "no_bookinstance": "There are no book instance"
+    "no_bookinstance": "There are no book instance",
+    "error_message_invalid": "Invalid book instance ID parameter",
+    "error_message_not_found": "Book instance not found"
   },
   "book": {
     "title": "Book List",
-    "no_book": "There are no book"
+    "no_book": "There are no book",
+    "no_copy": "There are no copies of this book in the library",
+    "no_genre": "No genre for book",
+    "error_message_invalid": "Invalid book ID parameter",
+    "error_message_not_found": "Book not found"
+  },
+  "error": {
+    "error": "Error",
+    "try_again": "Please try again later"
   }
 }

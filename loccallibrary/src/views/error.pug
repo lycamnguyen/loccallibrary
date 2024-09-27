@@ -1,0 +1,23 @@
+﻿extends layout
+
+block content
+  div(class="container-fluid")
+    div(class='row-sm-2')
+      block sidebar
+        ul(class='sidebar-nav')
+          li(class='inline')
+            a(href=`${currentPath}?lang=en`) #{t('home.english_translations')}
+          li(class='inline-between') 
+            p |
+          li(class='inline') 
+            a(href=`${currentPath}?lang=vi`) #{t('home.vietnamese_translations')}
+    div(class="container-error")
+      h1 #{t('error.error')}
+      if error && error.status
+        h2= error.status
+      else
+        h2 500
+
+      p= error.message || 'Something went wrong!'
+      p #{t('error.try_again')}
+

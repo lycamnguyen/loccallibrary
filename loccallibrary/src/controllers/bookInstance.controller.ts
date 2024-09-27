@@ -1,6 +1,6 @@
 ﻿import { Request, Response } from "express";
 import asyncHandler from "express-async-handler";
-import { listBookInstances } from "../services/bookInstance.service";
+import { findById, listBookInstances } from "../services/bookInstance.service";
 
 // Display list of all bookInstances.
 export const bookInstanceList = asyncHandler(
@@ -15,7 +15,29 @@ export const bookInstanceList = asyncHandler(
 // Display detail page for a specific bookInstance.
 export const bookInstanceDetail = asyncHandler(
   async (req: Request, res: Response) => {
-    res.send(`NOT IMPLEMENTED: bookInstance detail: ${req.params.id}`);
+    const id = parseInt(req.params.id);
+    const { t } = req;
+    res.locals.currentPath = "/bookinstances" + req.path;
+    if (isNaN(id)) {
+      return res.render("./error", {
+        error: {
+          status: 404,
+          message: t("bookinstance.error_message_invalid"),
+        },
+      });
+    }
+    const bookInstance = await findById(id);
+    if (bookInstance === null) {
+      return res.render("./error", {
+        error: {
+          status: 404,
+          message: t("bookinstance.error_message_not_found"),
+        },
+      });
+    }
+    return res.render("bookInstances/detail", {
+      bookInstance,
+    });
   }
 );
 

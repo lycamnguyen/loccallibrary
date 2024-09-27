@@ -1,0 +1,73 @@
+﻿extends ../layout
+
+block content
+  div(class='container-fluid')
+    div(class='row') 
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/') #{t('home.local_library')}
+            li
+              a(href='/books/list') #{t('home.book')}
+            li
+              a(href='/authors/list') #{t('home.author')}
+            li
+              a(href='/genres/list') #{t('home.genre')}
+            li
+              a(href='/bookInstances/list') #{t('home.book_instance')}
+
+      hr()
+
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/authors/create') #{t('home.create_author')}
+            li
+              a(href='/genres/create') #{t('home.create_genre')}
+            li
+              a(href='/books/create') #{t('home.create_book')}
+            li
+              a(href='/bookInstances/create') #{t('home.create_bookinstance')}
+      div(class='row-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li(class='inline')
+              a(href=`/books/${book.id}/detail?lang=en`) #{t('home.english_translations')}
+            li(class='inline-between') 
+              p |
+            li(class='inline') 
+              a(href=`/books/${book.id}/detail?lang=vi`) #{t('home.vietnamese_translations')}
+            .content
+            h1 #{t('home.title')}: #{book.title}
+
+            p #[strong #{t('home.author')}: ]
+              a(href=`/authors/${book.author.id}/detail`) #{book.author.name}
+            p #[strong #{t('home.summary')}: ] #{book.summary}
+            p #[strong #{t('home.isbn')}: ] #{book.isbn}
+            p #[strong #{t('home.genre')}: ]
+              if bookGenres.length != 0
+                each val, index in bookGenres
+                  a(href=`/genres/${val.id}/detail`)  #{val.name} ,
+              else
+                p #{t('book.no_genre')}
+
+            div(class="copy-title")
+              h4  #{t('home.copies')}
+
+              each val in bookInstances
+                hr
+                if val.status=='Available'
+                  p.text-success #{val.status}
+                else if val.status=='Maintenance'
+                  p.text-danger #{val.status}
+                else
+                  p.text-warning #{val.status}
+                p #[strong #{t('home.imprint')}:] #{val.imprint}
+                if val.status != 'Available'
+                  p #[strong #{t('home.dueback')}:] #{val.due_back}
+                p #[strong #{t('home.id')}: ]
+                  a(href=`/bookInstances/${val.id}/detail`) #{val.id}
+              else
+                p #{t(book.no_copy)}

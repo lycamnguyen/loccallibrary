@@ -18,22 +18,46 @@
     "create_book": "Tạo mới sách",
     "create_bookinstance": "Tạo mới bản sao sách",
     "english_translations": "Tiếng Anh",
-    "vietnamese_translations": "Tiếng Việt"
+    "vietnamese_translations": "Tiếng Việt",
+    "title": "Tiêu đề",
+    "isbn": "Mã số tiêu chuẩn",
+    "summary": "Tóm tắt",
+    "imprint": "Ấn bản",
+    "copies": "Bản sao",
+    "id": "Mã sách",
+    "status": "Trạng thái",
+    "dueback": "Ngày trả"
   },
   "author": {
     "title": "Danh sách tác giả",
-    "no_author": "Không có tác giả"
+    "no_author": "Không có tác giả",
+    "no_book": "Không có sách nào của tác giả này",
+    "error_message_invalid": "Mã tác giả không hợp lệ",
+    "error_message_not_found": "Không tìm thấy mã tác giả"
   },
   "genre": {
     "title": "Danh sách thể loại",
-    "no_genre": "Không có thể loại"
+    "no_genre": "Không có thể loại",
+    "no_book": "Không có sách nào của thể loại này",
+    "error_message_invalid": "Mã thể loại không hợp lệ",
+    "error_message_not_found": "Không tìm thấy mã thể loại"
   },
   "bookinstance": {
     "title": "Danh sách bản sao sách",
-    "no_bookinstance": "Không có bản sao sách"
+    "no_bookinstance": "Không có bản sao sách",
+    "error_message_invalid": "Mã bản sao không hợp lệ",
+    "error_message_not_found": "Không tìm thấy mã bản sao"
   },
   "book": {
     "title": "Danh sách sách",
-    "no_book": "Không có sách"
+    "no_book": "Không có sách",
+    "no_copy": "Không có bản sao nào của cuốn sách này trong thư viện",
+    "no_genre": "Không có thể loại",
+    "error_message_invalid": "Mã sách không hợp lệ",
+    "error_message_not_found": "Không tìm thấy mã sách"
+  },
+  "error": {
+    "error": "Lỗi",
+    "try_again": "Vui lòng thử lại sau"
   }
 }
