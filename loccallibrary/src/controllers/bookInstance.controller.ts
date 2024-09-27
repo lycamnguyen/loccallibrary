@@ -1,10 +1,14 @@
 ﻿import { Request, Response } from "express";
 import asyncHandler from "express-async-handler";
+import { listBookInstances } from "../services/bookInstance.service";
 
 // Display list of all bookInstances.
 export const bookInstanceList = asyncHandler(
   async (req: Request, res: Response) => {
-    res.send("NOT IMPLEMENTED: bookInstance list");
+    const bookInstances = await listBookInstances();
+    res.render("bookinstances/bookinstance", {
+      bookInstances,
+    });
   }
 );
 

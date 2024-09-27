@@ -12,7 +12,7 @@ import { numberOfGenres } from "../services/genre.service";
 //p5
 export const bookList = asyncHandler(async (req: Request, res: Response) => {
   const books = await findBook();
-  res.render("books/list", { books, title: "List of books" });
+  res.render("books/index", { books });
 });
 
 // Display detail page for a specific book.

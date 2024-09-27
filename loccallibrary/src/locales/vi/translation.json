@@ -19,5 +19,21 @@
     "create_bookinstance": "Tạo mới bản sao sách",
     "english_translations": "Tiếng Anh",
     "vietnamese_translations": "Tiếng Việt"
+  },
+  "author": {
+    "title": "Danh sách tác giả",
+    "no_author": "Không có tác giả"
+  },
+  "genre": {
+    "title": "Danh sách thể loại",
+    "no_genre": "Không có thể loại"
+  },
+  "bookinstance": {
+    "title": "Danh sách bản sao sách",
+    "no_bookinstance": "Không có bản sao sách"
+  },
+  "book": {
+    "title": "Danh sách sách",
+    "no_book": "Không có sách"
   }
 }

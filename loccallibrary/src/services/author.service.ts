@@ -7,3 +7,10 @@ export const numberOfAuthors = async () => {
   const authors = await authorRepository.count();
   return authors;
 };
+
+export const listAuthors = async () => {
+  return await authorRepository.find({
+    order: { firstName: "ASC" },
+    relations: ["books"],
+  });
+};

@@ -1,9 +1,11 @@
 ﻿import { Request, Response } from "express";
 import asyncHandler from "express-async-handler";
+import { listGenres } from "../services/genre.service";
 
 // Display list of all genres.
 export const genreList = asyncHandler(async (req: Request, res: Response) => {
-  res.send("NOT IMPLEMENTED: genre list");
+  const genres = await listGenres();
+  res.render("genres/genre", { genres });
 });
 
 // Display detail page for a specific genre.
