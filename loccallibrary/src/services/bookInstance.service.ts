@@ -14,3 +14,9 @@ export const availableBookInstances = async () => {
   });
   return bookInstances;
 };
+
+export const listBookInstances = async () => {
+  return await bookInstanceRepository.find({
+    relations: ["book"],
+  });
+};

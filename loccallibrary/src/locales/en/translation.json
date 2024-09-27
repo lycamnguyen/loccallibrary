@@ -19,5 +19,22 @@
     "create_bookinstance": "Create book instances",
     "english_translations": "English",
     "vietnamese_translations": "Vietnamese"
+  },
+
+  "author": {
+    "title": "Author List",
+    "no_author": "There are no author"
+  },
+  "genre": {
+    "title": "Genre List",
+    "no_genre": "There are no genre"
+  },
+  "bookinstance": {
+    "title": "Book Instance List",
+    "no_bookinstance": "There are no book instance"
+  },
+  "book": {
+    "title": "Book List",
+    "no_book": "There are no book"
   }
 }

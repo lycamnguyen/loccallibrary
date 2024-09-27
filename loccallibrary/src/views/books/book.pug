@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+  div(class='container-fluid')
+    div(class='row') 
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/') #{t('home.local_library')}
+            li
+              a(href='/books/list') #{t('home.book')}
+            li
+              a(href='/authors/list') #{t('home.author')}
+            li
+              a(href='/genres/list') #{t('home.genre')}
+            li
+              a(href='/bookInstances/list') #{t('home.book_instance')}
+
+      hr()
+
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/authors/create') #{t('home.create_author')}
+            li
+              a(href='/genres/create') #{t('home.create_genre')}
+            li
+              a(href='/books/create') #{t('home.create_book')}
+            li
+              a(href='/bookInstances/create') #{t('home.create_bookinstance')}
+      div(class='row-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li(class='inline')
+              a(href='/books/list/?lang=en') #{t('home.english_translations')}
+            li(class='inline-between') 
+              p |
+            li(class='inline') 
+              a(href='/books/list/?lang=vi') #{t('home.vietnamese_translations')}
+            .content
+              h1 #{t('book.title')}
+              ul
+                each book in books
+                  li
+                    a(href=book.url) #{book.title}
+                    |   (#{book.author.name})
+              if books.length === 0
+                p #{t('book.no_book')}
