@@ -1,6 +1,6 @@
 ﻿import { Request, Response } from "express";
 import asyncHandler from "express-async-handler";
-import { findBook, numberOfBooks } from "../services/book.service";
+import { findBook, findById, numberOfBooks } from "../services/book.service";
 import { numberOfAuthors } from "../services/author.service";
 import {
   availableBookInstances,
@@ -12,12 +12,37 @@ import { numberOfGenres } from "../services/genre.service";
 //p5
 export const bookList = asyncHandler(async (req: Request, res: Response) => {
   const books = await findBook();
-  res.render("books/index", { books });
+  return res.render("books/book", { books });
 });
 
 // Display detail page for a specific book.
 export const bookDetail = asyncHandler(async (req: Request, res: Response) => {
-  res.send(`NOT IMPLEMENTED: book detail: ${req.params.id}`);
+  const id = parseInt(req.params.id);
+  const { t } = req;
+  res.locals.currentPath = "/books" + req.path;
+  if (isNaN(id)) {
+    return res.render("./error", {
+      error: {
+        status: 404,
+        message: t("book.error_message_invalid"),
+      },
+    });
+  }
+  const book = await findById(id);
+
+  if (book === null) {
+    return res.render("./error", {
+      error: {
+        status: 404,
+        message: t("book.error_message_not_found"),
+      },
+    });
+  }
+  return res.render("books/detail", {
+    book,
+    bookInstances: book?.bookInstances,
+    bookGenres: book?.genres,
+  });
 });
 
 // Do the same with other actions Update, Delete, Create

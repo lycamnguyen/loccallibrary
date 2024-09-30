@@ -1,6 +1,6 @@
 ﻿import { Request, Response } from "express";
 import asyncHandler from "express-async-handler";
-import { listGenres } from "../services/genre.service";
+import { findById, listGenres } from "../services/genre.service";
 
 // Display list of all genres.
 export const genreList = asyncHandler(async (req: Request, res: Response) => {
@@ -10,7 +10,30 @@ export const genreList = asyncHandler(async (req: Request, res: Response) => {
 
 // Display detail page for a specific genre.
 export const genreDetail = asyncHandler(async (req: Request, res: Response) => {
-  res.send(`NOT IMPLEMENTED: genre detail: ${req.params.id}`);
+  const id = parseInt(req.params.id);
+  const { t } = req;
+  res.locals.currentPath = "/genres" + req.path;
+  if (isNaN(id)) {
+    return res.render("./error", {
+      error: {
+        status: 404,
+        message: t("genre.error_message_invalid"),
+      },
+    });
+  }
+  const genre = await findById(id);
+  if (genre === null) {
+    return res.render("./error", {
+      error: {
+        status: 404,
+        message: t("genre.error_message_not_found"),
+      },
+    });
+  }
+  return res.render("genres/detail", {
+    genre: genre,
+    books: genre?.books,
+  });
 });
 
 // Do the same with other actions Update, Delete, Create

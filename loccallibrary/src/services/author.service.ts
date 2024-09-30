@@ -14,3 +14,10 @@ export const listAuthors = async () => {
     relations: ["books"],
   });
 };
+
+export const findById = async (id) => {
+  return await authorRepository.findOne({
+    where: { id: id },
+    relations: ["books"],
+  });
+};

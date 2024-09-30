@@ -10,7 +10,7 @@ export class Genre {
   name: string;
 
   @ManyToMany(() => Book, (book) => book.genres)
-  books!: Book[];
+  books: Book[];
 
   constructor(init?: Partial<Genre>) {
     Object.assign(this, init);

@@ -1,6 +1,6 @@
 ﻿import { Request, Response } from "express";
 import asyncHandler from "express-async-handler";
-import { listAuthors } from "../services/author.service";
+import { findById, listAuthors } from "../services/author.service";
 
 // Display list of all Authors.
 export const authorList = asyncHandler(async (req: Request, res: Response) => {
@@ -11,7 +11,31 @@ export const authorList = asyncHandler(async (req: Request, res: Response) => {
 // Display detail page for a specific Author.
 export const authorDetail = asyncHandler(
   async (req: Request, res: Response) => {
-    res.send(`NOT IMPLEMENTED: Author detail: ${req.params.id}`);
+    const id = parseInt(req.params.id);
+    const { t } = req;
+    res.locals.currentPath = "/authors" + req.path;
+    if (isNaN(id)) {
+      return res.render("./error", {
+        error: {
+          status: 404,
+          message: t("author.error_message_invalid"),
+        },
+      });
+    }
+    const author = await findById(id);
+
+    if (author === null) {
+      return res.render("./error", {
+        error: {
+          status: 404,
+          message: t("author.error_message_not_found"),
+        },
+      });
+    }
+    return res.render("authors/detail", {
+      author,
+      books: author?.books,
+    });
   }
 );
 

@@ -18,3 +18,12 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.container-error {
+  text-align: center;
+}
+
+.copy_title {
+  margin-left: 20px;
+  margin-top: 20px;
+}

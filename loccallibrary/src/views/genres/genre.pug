@@ -44,7 +44,7 @@ block content
               ul
                 each genre in genres
                   li
-                    a(href=genre.url) #{genre.name}
+                    a(href=`/genres/${genre.id}/detail`) #{genre.name}
 
               if genres.length === 0
                 p #{t('genre.no_genre')}

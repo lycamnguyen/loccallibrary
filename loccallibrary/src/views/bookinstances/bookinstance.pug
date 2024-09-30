@@ -45,7 +45,7 @@ block content
         ul
           each bookInstance in bookInstances
             li
-              a(href=bookInstance.url) #{bookInstance.book.title} #{bookInstance.imprint}
+              a(href=`/bookInstances/${bookInstance.id}/detail`) #{bookInstance.book.title} #{bookInstance.imprint}
               span  - #{bookInstance.status}
                 if bookInstance.status != 'Available'
                   span  (Due back: #{bookInstance.due_back})
