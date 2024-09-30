@@ -34,20 +34,26 @@ block content
         block sidebar
           ul(class='sidebar-nav')
             li(class='inline')
-              a(href=`/genres/${genre.id}/detail?lang=en`) #{t('home.english_translations')}
+              a(href=`/books/${book.id}/delete?lang=en`) #{t('home.english_translations')}
             li(class='inline-between') 
               p |
             li(class='inline') 
-              a(href=`/genres/${genre.id}/detail?lang=vi`) #{t('home.vietnamese_translations')}
+              a(href=`/books/${book.id}/delete?lang=vi`) #{t('home.vietnamese_translations')}
             .content
-            h1 #{t('home.genre')}: #{genre.name}
-            p #{t('home.book')}
-            if books.length === 0
-              p #{t('genre.no_book')}
-            else
-              each book in books
-                a(href=`/books/${book.id}/detail`)  #{book.title}
-                p #{book.summary} 
+            h1 #{t("book.delete")}: #{book.title}
 
-      p
-        a(href=`/genres/${genre.id}/delete`) #{t("genre.delete")}
+            if bookInstances.length
+              p #[strong #{t("book.delete_noti")}]
+              div(class='copy_title')
+                h4 #{t('home.bookinstance')}
+                dl
+                  each bookinstance in bookInstances
+                    dt
+                      a(href=`/bookinstances/${bookinstance.id}/detail`) #{bookinstance.imprint}
+            else
+              p #{t("book.delete_message")}
+
+              form(method='POST' action=`/books/${book.id}/delete`)
+                div.form-group
+                  input#bookid.form-control(type='hidden' name='bookId', value=book.id )
+                button.btn.btn-primary(type='submit') #{t("book.delete")}

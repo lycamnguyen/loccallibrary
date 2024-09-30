@@ -8,11 +8,8 @@
     "welcome": "Chào mừng đến với {{title}}",
     "content": "Nội dung",
     "record_infor": "Tình trạng thư viện của chúng tôi:",
-    "book": "Sách",
     "bookinstance": "Các bản sao sách",
     "available_bookinstance": "Các bản sao sách có sẵn",
-    "author": "Tác giả",
-    "genre": "Thể loại",
     "create_author": "Tạo mới tác giả",
     "create_genre": "Tạo mới thể loại",
     "create_book": "Tạo mới sách",
@@ -26,27 +23,55 @@
     "copies": "Bản sao",
     "id": "Mã sách",
     "status": "Trạng thái",
-    "dueback": "Ngày trả"
+    "dueback": "Ngày trả",
+    "no_books_available": "không có sách sẵn"
   },
   "author": {
     "title": "Danh sách tác giả",
     "no_author": "Không có tác giả",
     "no_book": "Không có sách nào của tác giả này",
     "error_message_invalid": "Mã tác giả không hợp lệ",
-    "error_message_not_found": "Không tìm thấy mã tác giả"
+    "error_message_not_found": "Không tìm thấy mã tác giả",
+    "not_empty": "Tác giả không được để trống",
+    "first_not_empty": "First name không được để trống",
+    "family_not_empty": "Family không được để trống",
+    "death_not_empty": "Date of death không được để trống",
+    "birth_not_empty": "Date of birth không được để trống",
+    "firstname": "Tên",
+    "familyname": "Họ",
+    "create": "Tạo mới tác giả",
+    "delete": "Xóa tác giả",
+    "delete_message": "Bạn muốn xóa tác giả này chứ?",
+    "delete_noti": "Hãy xóa những cuốn sách sau trước khi thử xóa tác giả này"
   },
   "genre": {
     "title": "Danh sách thể loại",
     "no_genre": "Không có thể loại",
     "no_book": "Không có sách nào của thể loại này",
     "error_message_invalid": "Mã thể loại không hợp lệ",
-    "error_message_not_found": "Không tìm thấy mã thể loại"
+    "error_message_not_found": "Không tìm thấy mã thể loại",
+    "not_empty": "Chọn ít nhất 1 thể loại",
+    "create": "Tạo mới thể loại",
+    "delete": "Xóa thể loại",
+    "delete_message": "Bạn muốn xóa thể loại này chứ?",
+    "delete_noti": "Hãy xóa những cuốn sách sau trước khi thử xóa thể loại này"
   },
   "bookinstance": {
     "title": "Danh sách bản sao sách",
     "no_bookinstance": "Không có bản sao sách",
     "error_message_invalid": "Mã bản sao không hợp lệ",
-    "error_message_not_found": "Không tìm thấy mã bản sao"
+    "error_message_not_found": "Không tìm thấy mã bản sao",
+    "not_empty": "Chọn ít nhất 1 bản sao sách",
+    "available": "Có sẵn",
+    "reserved": "Đã đặt trước",
+    "loaned": "Cho mượn",
+    "create": "Tạo mới bản sao sách",
+    "select_book": "Chọn sách",
+    "delete": "Xóa bản sao sách",
+    "delete_message": "Bạn muốn xóa bản sao sách này chứ?",
+    "book_not_empty": "Sách không được để trống",
+    "imprint_not_empty": "Ấn bản không được để trống",
+    "dueback_not_empty": "Ngày trả không được để trống"
   },
   "book": {
     "title": "Danh sách sách",
@@ -54,10 +79,32 @@
     "no_copy": "Không có bản sao nào của cuốn sách này trong thư viện",
     "no_genre": "Không có thể loại",
     "error_message_invalid": "Mã sách không hợp lệ",
-    "error_message_not_found": "Không tìm thấy mã sách"
+    "error_message_not_found": "Không tìm thấy mã sách",
+    "not_empty": "Tên sách không được để trống",
+    "title_enter": "Nhập vào tên sách",
+    "isbn_enter": "Nhập vào mã số tiêu chuẩn",
+    "summary_enter": "Nhập vào tóm tắt",
+    "create": "Tạo mới sách",
+    "delete": "Xóa sách",
+    "delete_message": "Bạn muốn xóa sách này chứ?",
+    "delete_noti": "Hãy xóa những bản sao sách sau trước khi thử xóa sách này",
+    "update": "Cập nhật sách",
+    "select_author": "Chọn tác giả"
+  },
+  "summary": {
+    "not_empty": "Tóm tắt không được để trống"
+  },
+  "isb": {
+    "not_empty": "Mã số tiêu chuẩn không được để trống"
   },
   "error": {
     "error": "Lỗi",
     "try_again": "Vui lòng thử lại sau"
+  },
+  "date": {
+    "birthempty": "Ngày sinh không được để trống",
+    "deathempty": "Ngày mất không được để trống",
+    "birth": "Ngày sinh",
+    "death": "Ngày mất"
   }
 }

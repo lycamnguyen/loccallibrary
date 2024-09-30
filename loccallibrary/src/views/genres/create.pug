@@ -34,20 +34,22 @@ block content
         block sidebar
           ul(class='sidebar-nav')
             li(class='inline')
-              a(href=`/genres/${genre.id}/detail?lang=en`) #{t('home.english_translations')}
+              a(href=`/genres/create?lang=en`) #{t('home.english_translations')}
             li(class='inline-between') 
               p |
             li(class='inline') 
-              a(href=`/genres/${genre.id}/detail?lang=vi`) #{t('home.vietnamese_translations')}
+              a(href=`/genres/create?lang=vi`) #{t('home.vietnamese_translations')}
             .content
-            h1 #{t('home.genre')}: #{genre.name}
-            p #{t('home.book')}
-            if books.length === 0
-              p #{t('genre.no_book')}
-            else
-              each book in books
-                a(href=`/books/${book.id}/detail`)  #{book.title}
-                p #{book.summary} 
+            h1 #{t('genre.create')}
 
-      p
-        a(href=`/genres/${genre.id}/delete`) #{t("genre.delete")}
+            form(method='POST' action='/genres/create') 
+              div.form-group
+                label(for='name') #{t('home.genre')}:
+                input#name.form-control(type='text' placeholder='Fantasy, Poetry etc.'
+                  name='name' required value=(undefined===genre ? '' : genre.name))
+              button.btn.btn-primary(type='submit') #{t("genre.create")}
+
+            if errors
+              ul
+                for error in errors
+                  li!= error.msg

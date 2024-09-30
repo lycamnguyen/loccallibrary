@@ -47,3 +47,4 @@ block content
             p #{t('home.status')}: #{bookInstance.status}
             if bookInstance.status != 'Available'
               p #{t('home.dueback')}: #{bookInstance.due_back}
+    a(href=`/bookInstances/${bookInstance.id}/delete`) #{t("bookinstance.delete")}
