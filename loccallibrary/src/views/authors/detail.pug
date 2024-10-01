@@ -47,4 +47,5 @@ block content
                 a(href=`/books/${book.id}/detail`)  #{book.title}
                 p #{book.summary} 
             else
-              p #{t(book.no_book)} 
+              p #{t('book.no_book')} 
+      a(href=`/authors/${author.id}/delete`)  #{t("author.delete")}

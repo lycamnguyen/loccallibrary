@@ -34,20 +34,28 @@ block content
         block sidebar
           ul(class='sidebar-nav')
             li(class='inline')
-              a(href=`/genres/${genre.id}/detail?lang=en`) #{t('home.english_translations')}
+              a(href=`/authors/${author.id}/delete?lang=en`) #{t('home.english_translations')}
             li(class='inline-between') 
               p |
             li(class='inline') 
-              a(href=`/genres/${genre.id}/detail?lang=vi`) #{t('home.vietnamese_translations')}
+              a(href=`/authors/${author.id}/delete?lang=vi`) #{t('home.vietnamese_translations')}
             .content
-            h1 #{t('home.genre')}: #{genre.name}
-            p #{t('home.book')}
-            if books.length === 0
-              p #{t('genre.no_book')}
-            else
-              each book in books
-                a(href=`/books/${book.id}/detail`)  #{book.title}
-                p #{book.summary} 
+            h1 #{t("author.delete")}: #{author.name}
+            p= author.lifespan
 
-      p
-        a(href=`/genres/${genre.id}/delete`) #{t("genre.delete")}
+            if books.length
+              p #[strong #{t("author.delete_noti")}]
+              div(class='copy_title')
+                h4 #{t("home.book")}
+                dl
+                  each book in books
+                    dt
+                      a(href=book.url) #{book.title}
+                    dd #{book.summary}
+            else
+              p #{t("author.delete_message")}
+
+              form(method='POST' action=`/authors/${author.id}/delete`)
+                div.form-group
+                  input#authorid.form-control(type='hidden' name='authorid', value=author.id )
+                button.btn.btn-primary(type='submit') #{t("author.delete")}

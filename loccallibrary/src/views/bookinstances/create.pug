@@ -1,0 +1,75 @@
+﻿extends ../layout
+
+block content
+  div(class='container-fluid')
+    div(class='row') 
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/') #{t('home.local_library')}
+            li
+              a(href='/books/list') #{t('home.book')}
+            li
+              a(href='/authors/list') #{t('home.author')}
+            li
+              a(href='/genres/list') #{t('home.genre')}
+            li
+              a(href='/bookInstances/list') #{t('home.book_instance')}
+
+      hr()
+
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/authors/create') #{t('home.create_author')}
+            li
+              a(href='/genres/create') #{t('home.create_genre')}
+            li
+              a(href='/books/create') #{t('home.create_book')}
+            li
+              a(href='/bookInstances/create') #{t('home.create_bookinstance')}
+      div(class='row-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li(class='inline')
+              a(href=`/bookinstances/create?lang=en`) #{t('home.english_translations')}
+            li(class='inline-between') 
+              p |
+            li(class='inline') 
+              a(href=`/bookinstances/create?lang=vi`) #{t('home.vietnamese_translations')}
+            .content
+      h1 #{t("home.create_bookinstance")}
+      form(action='/bookInstances/create' method='POST')
+        .form-group
+          label(for='book') #{t('home.book')}:
+            if errors
+              each error in errors
+                if error.path == 'book'
+                  .alert.alert-danger #{t('bookinstance.book_not_empty')}
+            select.form-control(id='book' name='book')
+              option(value='') #{t("bookinstance.select_book")}
+              each book in books
+                option(value=book.id)= book.title
+        .form-group
+          label(for='imprint') #{t("home.imprint")}:
+          if errors
+            each error in errors
+              if error.path == 'imprint'
+                .alert.alert-danger #{t('bookinstance.imprint_not_empty')}
+          input.form-control(type='text' id='imprint' name='imprint' placeholder='Enter imprint')
+        .form-group
+          label(for='due_back') #{t("home.dueback")}:
+          if errors
+            each error in errors
+              if error.path == 'book'
+                .alert.alert-danger #{t('bookinstance.dueback_not_empty')}
+          input.form-control(type='text' id='due_back' name='due_back' placeholder='Enter due_back')
+        .form-group
+          label(for='status') #{t("home.status")}:
+          select.form-control(id='status' name='status')
+            option(value="Loaned") #{t("bookinstance.loaned")}
+            option(value="Available") #{t("bookinstance.available")}
+            option(value="Reserved") #{t("bookinstance.reserved")}
+        button.btn.btn-primary(type='submit') #{t("bookinstance.create")}

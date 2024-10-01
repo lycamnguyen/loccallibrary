@@ -71,3 +71,7 @@ block content
                   a(href=`/bookInstances/${val.id}/detail`) #{val.id}
               else
                 p #{t(book.no_copy)}
+      p
+    a(href=`/books/${book.id}/delete`) #{t("book.delete")}
+      p
+    a(href=`/books/${book.id}/update`) #{t("book.update")}

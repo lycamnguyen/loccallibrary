@@ -1,0 +1,73 @@
+﻿extends ../layout
+
+block content
+  div(class='container-fluid')
+    div(class='row') 
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/') #{t('home.local_library')}
+            li
+              a(href='/books/list') #{t('home.book')}
+            li
+              a(href='/authors/list') #{t('home.author')}
+            li
+              a(href='/genres/list') #{t('home.genre')}
+            li
+              a(href='/bookInstances/list') #{t('home.book_instance')}
+
+      hr()
+
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li
+              a(href='/authors/create') #{t('home.create_author')}
+            li
+              a(href='/genres/create') #{t('home.create_genre')}
+            li
+              a(href='/books/create') #{t('home.create_book')}
+            li
+              a(href='/bookInstances/create') #{t('home.create_bookinstance')}
+      div(class='row-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li(class='inline')
+              a(href=`/authors/create?lang=en`) #{t('home.english_translations')}
+            li(class='inline-between') 
+              p |
+            li(class='inline') 
+              a(href=`/authors/create?lang=vi`) #{t('home.vietnamese_translations')}
+            .content
+    h1 #{t('author.create')}
+    form(action=`/authors/create` method='post')
+      .form-group
+        label(for='firstName') #{t('author.firstname')}:
+        if errors
+          each error in errors
+            if error.path == 'firstName'
+              .alert.alert-danger #{t('author.first_not_empty')}
+        input.form-control(type='text' id='firstName' name='firstName' placeholder='Enter first name')
+      .form-group
+        label(for='familyName') #{t('author.familyname')}:
+        if errors
+          each error in errors
+            if error.path == 'familyName'
+              .alert.alert-danger #{t('author.family_not_empty')}
+        input.form-control(type='text' id='familyName' name='familyName' placeholder='Enter family name')
+      .form-group
+        label(for='dateOfBirth') #{t('date.birth')}:
+        if errors
+          each error in errors
+            if error.path == 'dateOfBirth'
+              .alert.alert-danger #{t('date.birthempty')}
+        input.form-control(type='date' id='dateOfBirth' name='dateOfBirth')
+      .form-group
+        label(for='dateOfDeath') #{t('date.death')}:
+        if errors
+          each error in errors
+            if error.path == 'dateOfDeath'
+              .alert.alert-danger #{t('date.deathempty')}
+        input.form-control(type='date' id='dateOfDeath' name='dateOfDeath')
+      button.btn.btn-primary(type='submit') #{t("author.create")}

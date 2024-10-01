@@ -8,11 +8,8 @@
     "welcome": "Welcome to {{title}}",
     "content": "Content",
     "record_infor": "The state of our library:",
-    "book": "Books",
     "bookinstance": "Book Instances",
     "available_bookinstance": "Available Book Instances",
-    "author": "Authors",
-    "genre": "Genres",
     "create_author": "Create author",
     "create_genre": "Create genre",
     "create_book": "Create book",
@@ -26,28 +23,56 @@
     "copies": "Copies",
     "id": "ID",
     "status": "Status",
-    "dueback": "Due back"
+    "dueback": "Due back",
+    "no_books_available": "No books available"
   },
-
   "author": {
     "title": "Author List",
     "no_author": "There are no author",
     "no_book": "No book for author",
     "error_message_invalid": "Invalid author ID parameter",
-    "error_message_not_found": "Author not found"
+    "error_message_not_found": "Author not found",
+    "not_empty": "Author must not be empty",
+    "first_not_empty": "First name must not be empty",
+    "family_not_empty": "Family must not be empty",
+    "death_not_empty": "Date of death must not be empty",
+    "birth_not_empty": "Date of birth must not be empty",
+    "firstname": "First name",
+    "familyname": "Family name",
+    "create": "Create new author",
+    "delete": "Delete author",
+    "delete_message": "Do you really want to delete this Author?",
+    "delete_noti": "Delete the following books before attempting to delete this author",
+    "update": "Update author"
   },
   "genre": {
     "title": "Genre List",
     "no_genre": "There are no genre",
     "no_book": "No book for genre",
     "error_message_invalid": "Invalid genre ID parameter",
-    "error_message_not_found": "Genre not found"
+    "error_message_not_found": "Genre not found",
+    "not_empty": "At least one genre must be selected.",
+    "create": "Create new genre",
+    "delete": "Delete genre",
+    "delete_message": "Do you really want to delete this genre?",
+    "delete_noti": "Delete the following books before attempting to delete this genre"
   },
   "bookinstance": {
     "title": "Book Instance List",
     "no_bookinstance": "There are no book instance",
     "error_message_invalid": "Invalid book instance ID parameter",
-    "error_message_not_found": "Book instance not found"
+    "error_message_not_found": "Book instance not found",
+    "not_empty": "Select at least 1 copy of the book",
+    "available": "Available",
+    "reserved": "Reserved",
+    "loaned": "Loaned",
+    "create": "Create new book instance",
+    "select_book": "Select book",
+    "delete": "Delete book instance",
+    "delete_message": "Do you really want to delete this book instance?",
+    "book_not_empty": "Book must not be empty",
+    "imprint_not_empty": "Imprint must not be empty",
+    "dueback_not_empty": "Due back must not be empty"
   },
   "book": {
     "title": "Book List",
@@ -55,10 +80,32 @@
     "no_copy": "There are no copies of this book in the library",
     "no_genre": "No genre for book",
     "error_message_invalid": "Invalid book ID parameter",
-    "error_message_not_found": "Book not found"
+    "error_message_not_found": "Book not found",
+    "not_empty": "Title must not be empty",
+    "title_enter": "Enter the book title",
+    "isbn_enter": "Enter the ISBN",
+    "summary_enter": "Enter the summary",
+    "create": "Create new book",
+    "delete": "Delete book",
+    "delete_message": "Do you really want to delete this book?",
+    "delete_noti": "Delete the following books instance before attempting to delete this book",
+    "update": "Update book",
+    "select_author": "Select author"
+  },
+  "summary": {
+    "not_empty": "Summary must not be empty"
+  },
+  "isb": {
+    "not_empty": "ISBN must not be empty"
   },
   "error": {
     "error": "Error",
     "try_again": "Please try again later"
+  },
+  "date": {
+    "birthempty": "Date of birth must not be empty",
+    "deathempty": "Date of death must not be empty",
+    "birth": "Date of birth",
+    "death": "Date of death"
   }
 }

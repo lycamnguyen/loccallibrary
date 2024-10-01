@@ -21,3 +21,22 @@ export const findById = async (id) => {
     relations: ["books"],
   });
 };
+
+export const deleteById = async (id) => {
+  return await authorRepository.delete(id);
+};
+
+export const isExists = async (author) => {
+  return await authorRepository.findOne({
+    where: {
+      dateOfBirth: author.dateOfBirth,
+      dateOfDeath: author.dateOfDeath,
+      firstName: author.firstName,
+      familyName: author.familyName,
+    },
+  });
+};
+
+export const createAuthor = async (author) => {
+  return await authorRepository.save(author);
+};

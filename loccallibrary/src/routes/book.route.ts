@@ -8,9 +8,9 @@ router.get("/create", bookController.bookCreateGet);
 router.post("/create", bookController.bookCreatePost);
 
 // GET request to delete book.
-router.get("/update", bookController.bookUpdateGet);
+router.get("/:id/update", bookController.bookUpdateGet);
 // POST request to update book.
-router.post("/update", bookController.bookUpdatePost);
+router.post("/:id/update", bookController.bookUpdatePost);
 
 // GET request to delete book.
 router.get("/:id/delete", bookController.bookDeleteGet);

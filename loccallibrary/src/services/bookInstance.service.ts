@@ -27,3 +27,11 @@ export const findById = async (id) => {
     relations: ["book"],
   });
 };
+
+export const createBookinstance = async (bookinstance) => {
+  return await bookInstanceRepository.save(bookinstance);
+};
+
+export const deleteById = async (id) => {
+  return await bookInstanceRepository.delete(id);
+};

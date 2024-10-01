@@ -23,3 +23,15 @@ export const findById = async (id) => {
     where: { id: id },
   });
 };
+
+export const updateBook = async (book) => {
+  return await bookRepository.save(book);
+};
+
+export const createBook = async (book) => {
+  return await bookRepository.save(book);
+};
+
+export const deleteById = async (id) => {
+  return await bookRepository.delete(id);
+};
